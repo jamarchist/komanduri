@@ -50,5 +50,5 @@
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
 	<access origin="*" />
-    <gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer" version="2.2.0" />
+    <!--<gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer" version="2.2.0" />-->
 </widget>
