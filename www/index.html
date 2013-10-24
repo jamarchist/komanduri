@@ -27,12 +27,15 @@
 				</ul>
 			</div>
 		</nav>
+		<div class="container">
+			<input type="button" class="btn btn-default" onclick="downloadFile()" value="Download File" />
+		</div>
 		<script src="spec/lib/jquery-2.0.3.js"></script>
 		<script src="spec/lib/bootstrap-3.0.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
 		<script type="text/javascript">
-			$(function() {
-				console.log('app start');
+			function downloadFile() {
+				console.log('downloading file...');
 				
 				var imgPath = "http://digestive.niddk.nih.gov/ddiseases/pubs/upperendoscopy/images/Upper_GI_Endoscopy.jpg";
 				
@@ -52,7 +55,9 @@
 						console.log("upload error code" + error.code);
 					}
 				);
-			});
+				
+				console.log("download initialized.");
+			}
 		</script>
     </body>
 </html>
