@@ -39,10 +39,10 @@
 				
 				var imgPath = "http://digestive.niddk.nih.gov/ddiseases/pubs/upperendoscopy/images/Upper_GI_Endoscopy.jpg";
 				
-				var fileTransfer = new FileTransfer();
 				var uri = encodeURI(imgPath);
-				var filePath = "videos/Upper_GI_Endoscopy.jpg";
+				var filePath = "file:///sdcard/Upper_GI_Endoscopy.jpg";
 
+				var fileTransfer = new FileTransfer();
 				fileTransfer.download(
 					uri,
 					filePath,
