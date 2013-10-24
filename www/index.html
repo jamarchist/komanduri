@@ -29,21 +29,25 @@
 		</nav>
 		<div class="container">
 			<input type="button" class="btn btn-default" onclick="downloadFile()" value="Download File" />
-		</div>
-		<div>
-			<img src="https://images-na.ssl-images-amazon.com/images/G/01/associates/remote-buy-box/buy2._V192207737_.gif" />
+			<input type="button" class="btn btn-default" onclick="playVideo()" value="Play Video" />
 		</div>
 		<script src="spec/lib/jquery-2.0.3.js"></script>
 		<script src="spec/lib/bootstrap-3.0.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
 		<script type="text/javascript">
+			var filePath = "file:///sdcard/Colon_EMR_bleed.mp4";
+		
+			function playVideo() {
+				window.plugins.videoPlayer.play(filePath);
+			}
+		
 			function downloadFile() {
 				console.log('downloading file...');
 				
-				var imgPath = "https://images-na.ssl-images-amazon.com/images/G/01/associates/remote-buy-box/buy2._V192207737_.gif";
+				var imgPath = "https://www.dropbox.com/s/o8xwz1hc8qjigsh/Colon_EMR_bleed.mp4";
 				
 				var uri = encodeURI(imgPath);
-				var filePath = "file:///sdcard/buy_from_amazon.gif";
+				
 
 				var fileTransfer = new FileTransfer();
 				fileTransfer.download(
