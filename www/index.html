@@ -74,41 +74,43 @@
                 function (fileSystem) {
                     console.log(fileSystem.root.fullPath);
                     console.log(fileSystem);
+                    
+                    localFilePath = fileSystem.root.fullPath + "/" + fileName;
+                    
+	            var fileTransfer = new FileTransfer();
+	
+	            fileTransfer.onprogress = function (progressEvent) {
+	                if (progressEvent.lengthComputable) {
+	                    var loaded = device.platform == "Android" ? progressEvent.loaded / 2 : progressEvent.loaded;
+	                    //                    loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+	                    $("#loaded").text((loaded * 100.0 / progressEvent.total).toFixed(1) + "%");
+	                    //                    $("#total").text(progressEvent.total);
+	                } else {
+	                    //                    loadingStatus.increment();
+	                }
+	            };
+             
+	            fileTransfer.download(
+					uri,
+					localFilePath,
+					function (entry) {
+					    console.log("download complete: " + entry.fullPath);
+					    console.log("path: " + entry.toURL());
+					},
+					function (error) {
+					    console.log("download error source " + error.source);
+					    console.log("download error target " + error.target);
+					    console.log("error code" + error.code);
+					    console.log(error);
+					}
+				);
+	
+	            console.log("download initialized.");
                 },
                 function () {
                     console.log("error getting LocalFileSystem");
                 }
             );
-
-            var fileTransfer = new FileTransfer();
-
-            fileTransfer.onprogress = function (progressEvent) {
-                if (progressEvent.lengthComputable) {
-                    var loaded = device.platform == "Android" ? progressEvent.loaded / 2 : progressEvent.loaded;
-                    //                    loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
-                    $("#loaded").text((loaded * 100.0 / progressEvent.total).toFixed(1) + "%");
-                    //                    $("#total").text(progressEvent.total);
-                } else {
-                    //                    loadingStatus.increment();
-                }
-            };
-
-            fileTransfer.download(
-				uri,
-				localFilePath,
-				function (entry) {
-				    console.log("download complete: " + entry.fullPath);
-				    console.log("path: " + entry.toURL());
-				},
-				function (error) {
-				    console.log("download error source " + error.source);
-				    console.log("download error target " + error.target);
-				    console.log("error code" + error.code);
-				    console.log(error);
-				}
-			);
-
-            console.log("download initialized.");
         }
     </script>
     <script src="http://debug.build.phonegap.com/target/target-script-min.js#d8503828-26d5-47c1-8727-376ec22dacca"></script>
