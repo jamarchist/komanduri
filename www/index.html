@@ -38,16 +38,13 @@
             <p>
                 A central resource for all specialized endoscopic procedures.</p>
             <input type="button" onclick="downloadFile()" value="Download File" />
-            <input type="button" onclick="playVideo()" value="Play Video" />
+            <input type="button" onclick="playVideo()" value="Play Video (Android)" />
             <div>
                 <div>
                     Loaded: <span id="loaded"></span>
                 </div>
             </div>
-            <video width="320" height="240" controls="controls" style="display: none">
-              <source src="file:///sdcard/Colon_EMR_bleed.webmhd.webm" type="video/webm">
-                Your browser does not support the video tag.
-            </video>
+            <div id="video-container"></div>
         </div>
     </div>
     <script type="text/javascript" src="phonegap.js"></script>
@@ -62,6 +59,13 @@
             console.log('playing video: ' + localFilePath + '...');
             window.plugins.videoPlayer.play(localFilePath);
             console.log('done');
+        }
+        
+        function loadVideoTag(source) {
+       	    $("#video-container").html(
+		    '<video width="640" height="480" controls="controls">' +
+		        '<source src="' + source + '" type="video/webm"></source>' +
+		    '</video>');
         }
 
         function downloadFile() {
@@ -96,6 +100,8 @@
 					function (entry) {
 					    console.log("download complete: " + entry.fullPath);
 					    console.log("path: " + entry.toURL());
+					    
+					    loadVideoTag(entry.toURL());
 					},
 					function (error) {
 					    console.log("download error source " + error.source);
