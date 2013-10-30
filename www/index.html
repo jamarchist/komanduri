@@ -1,112 +1,85 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
-    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-    <title>Komanduri</title>
-</head>
-<body>
-    <div data-role="page">
-        <div data-role="header">
-            <h1>
-                Komanduri</h1>
-        </div>
-        <div data-role="content">
-            <p>
-                A central resource for all specialized endoscopic procedures.</p>
-            <input type="button" onclick="downloadFile()" value="Download File" />
-            <input type="button" onclick="playVideo()" value="Play Video" />
-            <div>
-                <div>
-                    Loaded: <span id="loaded"></span>
-                </div>
-                <div>
-                    Total: <span id="total"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript" src="phonegap.js"></script>
-    <script src="http://debug.build.phonegap.com/target/target-script-min.js#d8503828-26d5-47c1-8727-376ec22dacca"></script>
-    <script type="text/javascript">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="spec/lib/bootstrap-3.0.0/css/bootstrap.min.css">
+		<!--<link rel="stylesheet" href="spec/lib/bootstrap-3.0.0/css/bootstrap-theme.min.css">-->
+        <title>Komanduri</title>
+    </head>
+    <body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Komanduri</a>
+			</div>
 
-        var fileName = "Colon_EMR_bleed.webmhd.webm";
-        var localFilePath = "file:///sdcard/" + fileName;
-        var remoteFilePath = "https://dl.dropboxusercontent.com/s/01ibjppn2tglgwh/" + fileName;
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Categories</a></li>
+					<li><a href="#">My Videos</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container">
+			<input type="button" class="btn btn-default" onclick="downloadFile()" value="Download File" />
+			<input type="button" class="btn btn-default" onclick="playVideo()" value="Play Video" />
+		</div>
+		<div>
+		<video width="320" height="240" controls="controls" preload="preload">
+			<source src="file:///mnt/sdcard/Colon_EMR_bleed.mp4" type="video/mp4" />
+			<!--<source src="https://drive.google.com/file/d/0BzYJ5gA3pA5SSFItWE9PLU8wemc/edit?usp=sharing" type="video/mp4" />
+			<source src="https://www.dropbox.com/s/01ibjppn2tglgwh/Colon_EMR_bleed.webmhd.webm" type="video/webm" />-->
+			Your browser does not support the video tag.
+		</video>
+		</div>
+		<script src="spec/lib/jquery-2.0.3.js"></script>
+		<script src="spec/lib/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("video source").on("error", function(e) {
+					console.log(e);
+				});
+			});
+		
+			var filePath = "file:///sdcard/Colon_EMR_bleed.mp4";
+		
+			function playVideo() {
+				//window.plugins.videoPlayer.play(filePath);
+			}
+		
+			function downloadFile() {
+				console.log('downloading file...');
+				
+				var imgPath = "https://www.dropbox.com/s/o8xwz1hc8qjigsh/Colon_EMR_bleed.mp4";
+				
+				var uri = encodeURI(imgPath);
+				
 
-        function playVideo() {
-            console.log('playing video: ' + localFilePath + '...');
-            window.plugins.videoPlayer.play(localFilePath);
-            console.log('done');
-        }
-
-        function downloadFile() {
-            console.log('downloading file...');
-
-            //            var uri = encodeURI(remoteFilePath);
-            var uri = remoteFilePath;
-
-            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
-                function (fileSystem) {
-                    console.log(fileSystem.root.fullPath);
-                    console.log(fileSystem);
-                },
-                function () {
-                    console.log("error getting LocalFileSystem");
-                }
-            );
-
-            var fileTransfer = new FileTransfer();
-
-            fileTransfer.onprogress = function (progressEvent) {
-                if (progressEvent.lengthComputable) {
-                    //                    loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
-                    $("#loaded").text(progressEvent.loaded);
-                    $("#total").text(progressEvent.total);
-                } else {
-                    //                    loadingStatus.increment();
-                }
-            };
-
-            fileTransfer.download(
-				uri,
-				localFilePath,
-				function (entry) {
-				    console.log("download complete: " + entry.fullPath);
-				},
-				function (error) {
-				    console.log("download error source " + error.source);
-				    console.log("download error target " + error.target);
-				    console.log("error code" + error.code);
-				    console.log(error);
-				}
-			);
-
-            console.log("download initialized.");
-        }
-    </script>
-</body>
+				var fileTransfer = new FileTransfer();
+				fileTransfer.download(
+					uri,
+					filePath,
+					function(entry) {
+						console.log("download complete: " + entry.fullPath);
+					},
+					function(error) {
+						console.log("download error source " + error.source);
+						console.log("download error target " + error.target);
+						console.log("error code" + error.code);
+						console.log(error);
+					}
+				);
+				
+				console.log("download initialized.");
+			}
+		</script>
+    </body>
 </html>
