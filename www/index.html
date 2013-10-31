@@ -44,13 +44,11 @@
                     Loaded: <span id="loaded"></span>
                 </div>
             </div>
-            <video width="640" height="480" controls="controls">
-            	<!--<source src="file://localhost/var/mobile/Applications/DAD39457-D739-4D7A-B351-279C0FA49DAF/Documents/Colon_EMR_bleed.webmhd.webm" type="video/webm" />-->
+            <!--<video width="640" height="480" controls="controls">
             	<source src="https://dl.dropboxusercontent.com/s/o8xwz1hc8qjigsh/Colon_EMR_bleed.mp4" type="video/mp4" />
-            	<!--<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />-->
             	<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />
             	Your browser does not support the video tag.
-            </video>
+            </video>-->
             <div id="video-container"></div>
         </div>
     </div>
@@ -61,10 +59,14 @@
 	    $.mobile.allowCrossDomainPages = true;
 	});
 
-        var fileName = "Colon_EMR_bleed.webmhd.webm";
+        //var fileName = "Colon_EMR_bleed.webmhd.webm";
+        var fileName = "Colon_EMR_bleed.mp4";
         //var localFilePath = "file:///sdcard/" + fileName;
-        var localFilePath = "res//db//" + fileName;
-        var remoteFilePath = "https://dl.dropboxusercontent.com/s/01ibjppn2tglgwh/" + fileName;
+        //var localFilePath = "res//db//" + fileName;
+        //var remoteFilePath = "https://dl.dropboxusercontent.com/s/01ibjppn2tglgwh/" + fileName;
+        var remoteFilePath = "https://dl.dropboxusercontent.com/s/o8xwz1hc8qjigsh/Colon_EMR_bleed.mp4";
+        
+        var localFilePath;
 
         function playVideo() {
             console.log('playing video: ' + localFilePath + '...');
@@ -75,7 +77,7 @@
         function loadVideoTag(source) {
        	    $("#video-container").html(
 		    '<video width="640" height="480" controls="controls">' +
-		        '<source src="' + source + '" type="video/webm"></source>' +
+		        '<source src="' + source + '" type="video/mp4"></source>' +
 		    '</video>');
         }
 
