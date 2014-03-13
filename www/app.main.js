@@ -1,9 +1,5 @@
 ﻿"use strict";
 
-document.addEventListener('deviceready', function() {
-  navigator.splashscreen.hide();
-});
-
 var MyApp = window.MyApp = {};
 
 $(function () {
@@ -39,6 +35,10 @@ $(function () {
     MyApp.app.router.register(":view/:id", { view: "procedure", id: null });
 
     console.log('app init complete');
+
+    navigator.splashscreen.hide();
+    
+    console.log('splash screen hidden');
 
     MyApp.app.navigate();
 });
