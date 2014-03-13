@@ -1,5 +1,9 @@
 ﻿"use strict";
 
+document.addEventListener('deviceready', function() {
+  navigator.splashscreen.hide();
+});
+
 var MyApp = window.MyApp = {};
 
 $(function () {
