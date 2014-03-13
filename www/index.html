@@ -1,137 +1,58 @@
-<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
-    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <meta name="viewport" content="width=device-width">
     <title>Komanduri</title>
+    <link rel="stylesheet" type="text/css" href="Lib/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="Lib/css/dx.ios.default.css" />
+    <link rel="stylesheet" type="text/css" href="Lib/css/dx.android.holo-dark.css" />
+    <link rel="stylesheet" type="text/css" href="Lib/css/dx.tizen.black.css" />
+    <link rel="stylesheet" type="text/css" href="Lib/css/dx.generic.light.css" />
+    <link rel="stylesheet" type="text/css" href="Lib/css/dx.win8.black.css" />
+    <script type="text/javascript" src="Lib/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="Lib/js/knockout-3.0.0.debug.js"></script>
+    <script type="text/javascript" src="Lib/js/globalize.min.js"></script>
+    <script type="text/javascript" src="Lib/js/dx.phonejs.debug.js"></script>
+    
+    <script type="text/javascript" src="app.main.js"></script>
+    <script type="text/javascript" src="db.js"></script>
+    
+    <script type="text/javascript" src="Lib/layouts/NavBar/NavbarLayout.js"></script>
+    <link rel="stylesheet" type="text/css" href="Lib/layouts/NavBar/NavbarLayout.css" />
+    <link rel="dx-template" type="text/html" href="Lib/layouts/NavBar/NavbarLayout.html"/>    
+    
+    <!-- Home -->
+    <link rel="stylesheet" type="text/css" href="views/home/style.css" />
+    <script type="text/javascript" src="views/home/controller.js"></script>
+    <link rel="dx-template" type="text/html" href="views/home/index.html"/>
+    <!-- My Library -->
+    <link rel="stylesheet" type="text/css" href="views/library/style.css" />
+    <script type="text/javascript" src="views/library/controller.js"></script>
+    <link rel="dx-template" type="text/html" href="views/library/index.html"/>     
+    <!-- Settings -->
+    <link rel="stylesheet" type="text/css" href="views/settings/style.css" />
+    <script type="text/javascript" src="views/settings/controller.js"></script>
+    <link rel="dx-template" type="text/html" href="views/settings/index.html"/>   
+     <!-- Procedure -->
+    <link rel="stylesheet" type="text/css" href="views/procedure/style.css" />
+    <script type="text/javascript" src="views/procedure/controller.js"></script>
+    <link rel="dx-template" type="text/html" href="views/procedure/index.html"/>    
+    
+    <!-- Procedure: Guidelines -->
+    <link rel="stylesheet" type="text/css" href="views/procedure/guidelines-tile/style.css" />
+    <link rel="dx-template" type="text/html" href="views/procedure/guidelines-tile/index.html"/> 
+    <!-- Procedure: Images -->
+    <link rel="stylesheet" type="text/css" href="views/procedure/images-tile/style.css" />
+    <link rel="dx-template" type="text/html" href="views/procedure/images-tile/index.html"/> 
+    <!-- Procedure: Links -->
+    <link rel="stylesheet" type="text/css" href="views/procedure/links-tile/style.css" />
+    <link rel="dx-template" type="text/html" href="views/procedure/links-tile/index.html"/> 
+    <!-- Procedure: Videos -->
+    <link rel="stylesheet" type="text/css" href="views/procedure/videos-tile/style.css" />
+    <link rel="dx-template" type="text/html" href="views/procedure/videos-tile/index.html"/>
 </head>
-<body>
-    <div data-role="page">
-        <div data-role="header">
-            <h1>
-                Komanduri</h1>
-        </div>
-        <div data-role="content">
-            <p>
-                A central resource for all specialized endoscopic procedures.</p>
-            <input type="button" onclick="downloadFile()" value="Download File" />
-            <input type="button" onclick="playVideo()" value="Play Video (Android)" />
-            <div>
-                <div>
-                    Loaded: <span id="loaded"></span>
-                </div>
-            </div>
-            <video width="640" height="480" controls="controls">
-            	<source src="file://localhost/var/mobile/Applications/001592E5-B5F8-4842-AFCB-A8542D162E0C/Documents/Colon_EMR_bleed.mp4" type="video/mp4" />
-            	<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />
-            	Your browser does not support the video tag.
-            </video>
-            <div id="video-container"></div>
-        </div>
-    </div>
-    <script type="text/javascript" src="phonegap.js"></script>
-    <script type="text/javascript">
-    	$( document ).bind( "mobileinit", function() {
-	    $.support.cors = true;
-	    $.mobile.allowCrossDomainPages = true;
-	});
-
-        //var fileName = "Colon_EMR_bleed.webmhd.webm";
-        var fileName = "Colon_EMR_bleed.mp4";
-        //var localFilePath = "file:///sdcard/" + fileName;
-        //var localFilePath = "res//db//" + fileName;
-        //var remoteFilePath = "https://dl.dropboxusercontent.com/s/01ibjppn2tglgwh/" + fileName;
-        var remoteFilePath = "https://dl.dropboxusercontent.com/s/o8xwz1hc8qjigsh/Colon_EMR_bleed.mp4";
-        
-        var localFilePath;
-
-        function playVideo() {
-            console.log('playing video: ' + localFilePath + '...');
-            window.plugins.videoPlayer.play(localFilePath);
-            console.log('done');
-        }
-        
-        function loadVideoTag(source) {
-       	    $("#video-container").html(
-		    '<video width="640" height="480" controls="controls">' +
-		        '<source src="' + source + '" type="video/mp4"></source>' +
-		    '</video>');
-        }
-
-        function downloadFile() {
-            console.log('downloading file...');
-
-            //            var uri = encodeURI(remoteFilePath);
-            var uri = remoteFilePath;
-
-            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
-                function (fileSystem) {
-                    console.log(fileSystem.root.fullPath);
-                    console.log(fileSystem);
-                    
-                    localFilePath = fileSystem.root.fullPath + "/" + fileName;
-                    
-	            var fileTransfer = new FileTransfer();
-	
-	            fileTransfer.onprogress = function (progressEvent) {
-	                if (progressEvent.lengthComputable) {
-	                    var loaded = device.platform == "Android" ? progressEvent.loaded / 2 : progressEvent.loaded;
-	                    //                    loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
-	                    $("#loaded").text((loaded * 100.0 / progressEvent.total).toFixed(1) + "%");
-	                    //                    $("#total").text(progressEvent.total);
-	                } else {
-	                    //                    loadingStatus.increment();
-	                }
-	            };
-             
-	            fileTransfer.download(
-					uri,
-					localFilePath,
-					function (entry) {
-					    console.log("download complete: " + entry.fullPath);
-					    console.log("path: " + entry.toURL());
-					    
-					    loadVideoTag(entry.toURL());
-					},
-					function (error) {
-					    console.log("download error source " + error.source);
-					    console.log("download error target " + error.target);
-					    console.log("error code" + error.code);
-					    console.log(error);
-					}
-				);
-	
-	            console.log("download initialized.");
-                },
-                function () {
-                    console.log("error getting LocalFileSystem");
-                }
-            );
-        }
-    </script>
-    <script src="http://debug.build.phonegap.com/target/target-script-min.js#d8503828-26d5-47c1-8727-376ec22dacca"></script>
-</body>
+    <body>
+        <div class="dx-viewport"></div>
+    </body>
 </html>
