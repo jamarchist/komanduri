@@ -36,7 +36,7 @@ $(function () {
 
     console.log('app init complete');
 
-    navigator.splashscreen.hide();
+    //navigator.splashscreen.hide();
     
     console.log('splash screen hidden');
 

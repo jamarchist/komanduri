@@ -1,13 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Komanduri", "www\Komanduri.csproj", "{362837C4-9989-45DB-AFF5-EFC178BEA6FD}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AF49900F-13CD-4287-9959-692E26C1DE39}"
-	ProjectSection(SolutionItems) = preProject
-		config.xml = config.xml
-		index.html = index.html
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Komanduri", "Komanduri.csproj", "{362837C4-9989-45DB-AFF5-EFC178BEA6FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
