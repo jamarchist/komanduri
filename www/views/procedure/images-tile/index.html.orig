@@ -1,5 +1,0 @@
-﻿<div data-options="dxView: { name: 'images-tile' }">
-    <div class="tile-title">Image Gallery</div>
-    <div id="image-container" data-bind="dxGallery: { dataSource: imagesByKey[procedureId] }"></div>
-    <span>[+]</span>
-</div>
