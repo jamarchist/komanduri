@@ -1,12 +1,15 @@
 ﻿"use strict";
 
+window.logMessages = [];
+
 var MyApp = window.MyApp = {};
 
 $(function () {
-    MyApp.app = new DevExpress.framework.html.HtmlApplication({
-        namespace: MyApp,
-        navigationType: "navbar",
-        navigation: [
+    try {
+        MyApp.app = new DevExpress.framework.html.HtmlApplication({
+            namespace: MyApp,
+            navigationType: "navbar",
+            navigation: [
                     {
                         title: "Home",
                         action: "#home",
@@ -23,10 +26,15 @@ $(function () {
                         icon: "info"
                     }
                 ]
-    });
+        });
 
-    MyApp.app.router.register(":view", { view: "home" });
-    MyApp.app.router.register(":view", { view: "library" });
-    MyApp.app.router.register(":view", { view: "settings" });
-    MyApp.app.router.register(":view/:id", { view: "procedure", id: null });
+        MyApp.app.router.register(":view", { view: "home" });
+        MyApp.app.router.register(":view", { view: "library" });
+        MyApp.app.router.register(":view", { view: "settings" });
+        MyApp.app.router.register(":view/:id", { view: "procedure", id: null });
+    } catch (e) {
+        window.logMessages.push(e);
+    }
+
+
 });
