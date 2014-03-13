@@ -32,11 +32,11 @@
     <!-- Do not auto hide splash on Android -->
     <preference name="SplashScreenDelay" value="10000" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
-    <icon src="icon.png" />
-    <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
-    <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
-    <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
-    <icon gap:density="xhdpi" gap:platform="android" src="res/icon/android/icon-96-xhdpi.png" />
+    <icon src="www/icon.png" />
+    <icon gap:density="ldpi" gap:platform="android" src="www/icon.png" />
+    <icon gap:density="mdpi" gap:platform="android" src="www/icon.png" />
+    <icon gap:density="hdpi" gap:platform="android" src="www/icon.png" />
+    <icon gap:density="xhdpi" gap:platform="android" src="www/icon.png" />
     <icon gap:platform="blackberry" src="res/icon/blackberry/icon-80.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="res/icon/blackberry/icon-80.png" />
     <icon gap:platform="ios" height="57" src="res/icon/ios/icon-57.png" width="57" />
