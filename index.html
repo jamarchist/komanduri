@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Komanduri</title>
+	
     <script type="text/javascript" src="phonegap.js"></script>
 	<link rel="stylesheet" type="text/css" href="www/Lib/css/dx.common.css" />
     <link rel="stylesheet" type="text/css" href="www/Lib/css/dx.ios.default.css" />
@@ -58,6 +59,7 @@
 		
 		<script type="text/javascript">
 			$(function (){
+				console.log('Calling MyApp.app.navigate().');
 				MyApp.app.navigate();
 			});
 		</script>
