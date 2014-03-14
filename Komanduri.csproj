@@ -55,6 +55,7 @@
     <Content Include="cordova.js" />
     <Content Include="debug-pgb.js" />
     <Content Include="icon.png" />
+    <Content Include="index.html" />
     <Content Include="Lib\js\cordova.js" />
     <Content Include="Lib\js\cordova\cordova.android.js" />
     <Content Include="Lib\js\cordova\cordova.ios.js" />
@@ -90,7 +91,7 @@
     <Content Include="content\procedures\polyps\images\post emr jan 2014.JPEG" />
     <Content Include="db.js" />
     <Content Include="img\logo.png" />
-    <Content Include="index.html" />
+    <Content Include="main.html" />
     <Content Include="Lib\css\dx.android.holo-dark.css" />
     <Content Include="Lib\css\dx.android.holo-light.css" />
     <Content Include="Lib\css\dx.common.css" />
