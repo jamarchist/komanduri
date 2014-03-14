@@ -3,6 +3,8 @@ var MyApp = window.MyApp = {};
 
 $(document).on('deviceready', function () {
     try {
+        console.log('Device is ready. Setting up Komanduri navigation.');
+
         MyApp.app = new DevExpress.framework.html.HtmlApplication({
             namespace: MyApp,
             navigationType: "navbar",
@@ -25,6 +27,8 @@ $(document).on('deviceready', function () {
                 ]
         });
 
+        console.log('Registering routes.');
+        
         MyApp.app.router.register(":view", { view: "home" });
         MyApp.app.router.register(":view", { view: "library" });
         MyApp.app.router.register(":view", { view: "settings" });
