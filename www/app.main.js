@@ -1,10 +1,7 @@
-﻿"use strict";
-
-window.logMessages = [];
-
+﻿window.logMessages = [];
 var MyApp = window.MyApp = {};
 
-$(function () {
+$(document).on('deviceready', function () {
     try {
         MyApp.app = new DevExpress.framework.html.HtmlApplication({
             namespace: MyApp,
@@ -33,8 +30,13 @@ $(function () {
         MyApp.app.router.register(":view", { view: "settings" });
         MyApp.app.router.register(":view/:id", { view: "procedure", id: null });
     } catch (e) {
+        console.log(e);
         window.logMessages.push(e);
     }
-
-
 });
+
+//$(function () {
+
+
+
+//});
