@@ -57,7 +57,7 @@
     <Content Include="Lib\js\cordova\cordova.android.js" />
     <Content Include="Lib\js\cordova\cordova.ios.js" />
     <Content Include="Lib\js\cordova\cordova.stub.js" />
-    <Content Include="orig_config.xml" />
+    <Content Include="config.xml" />
     <Content Include="content\procedures\ercp\images\image-1.png" />
     <Content Include="content\procedures\ercp\images\image-2.png" />
     <Content Include="content\procedures\ercp\images\image-3.png" />
@@ -88,7 +88,7 @@
     <Content Include="content\procedures\polyps\images\post emr jan 2014.JPEG" />
     <Content Include="db.js" />
     <Content Include="img\logo.png" />
-    <Content Include="orig_index.html" />
+    <Content Include="index.html" />
     <Content Include="Lib\css\dx.android.holo-dark.css" />
     <Content Include="Lib\css\dx.android.holo-light.css" />
     <Content Include="Lib\css\dx.common.css" />
@@ -136,7 +136,6 @@
     <Content Include="Lib\layouts\Split\SplitLayout.css" />
     <Content Include="Lib\layouts\Split\SplitLayout.html" />
     <Content Include="Lib\layouts\Split\SplitLayout.js" />
-    <Content Include="phonegap.js" />
     <Content Include="views\home\home-controller.js" />
     <Content Include="views\home\home-index.html" />
     <Content Include="views\home\home-style.css" />

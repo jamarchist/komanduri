@@ -8,9 +8,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 	
-	<script type="text/javascript" src="phonegap.js"></script>
-    <!-- <script type="text/javascript" charset="utf-8" src="www/Lib/js/cordova.js"></script> -->	
-	
     <script type="text/javascript" src="Lib/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="Lib/js/knockout-3.0.0.debug.js"></script>
     <script type="text/javascript" src="Lib/js/globalize.min.js"></script>
@@ -94,6 +91,7 @@
 		        try {
 		            alert('Calling MyApp.app.navigate().');
 		            MyApp.app.navigate();
+		            alert('navigate success');
 		        }
 		        catch (e) {
 		            alert(e);
