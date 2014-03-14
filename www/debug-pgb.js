@@ -1,9 +1,11 @@
-﻿document.querySelector('body').addEventListener('click', function () {
-    console.log('body clicked.');
+﻿document.addEventListener('deviceready', function() {
+    document.querySelector('body').addEventListener('click', function () {
+        console.log('body clicked.');
 
-    for (var messageIndex = 0; messageIndex < window.logMessages.length; messageIndex++) {
-        alert(window.logMessages[messageIndex]);
-    }
+        for (var messageIndex = 0; messageIndex < window.logMessages.length; messageIndex++) {
+            alert(window.logMessages[messageIndex]);
+        }
 
-    console.log('messages shown.');
+        console.log('messages shown.');
+    });
 });
