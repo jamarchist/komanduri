@@ -1,7 +1,14 @@
-﻿window.logMessages = [];
-var MyApp = window.MyApp = {};
+﻿var MyApp = window.MyApp || {};
+
+$(function () {
+    alert('Document Ready.');
+});
 
 $(document).on('deviceready', function () {
+    alert('Device Ready.');
+});
+
+$(function () {
     try {
         console.log('Device is ready. Setting up Komanduri navigation.');
 
@@ -28,19 +35,12 @@ $(document).on('deviceready', function () {
         });
 
         console.log('Registering routes.');
-        
+
         MyApp.app.router.register(":view", { view: "home" });
         MyApp.app.router.register(":view", { view: "library" });
         MyApp.app.router.register(":view", { view: "settings" });
         MyApp.app.router.register(":view/:id", { view: "procedure", id: null });
     } catch (e) {
-        console.log(e);
-        window.logMessages.push(e);
+        alert(e);
     }
 });
-
-//$(function () {
-
-
-
-//});
