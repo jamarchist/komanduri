@@ -1,42 +1,76 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Komanduri</title>
-    <link rel="stylesheet" type="text/css" href="Lib/css/dx.common.css" />
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	
+	<script type="text/javascript" src="phonegap.js"></script>
+    <!-- <script type="text/javascript" charset="utf-8" src="www/Lib/js/cordova.js"></script> -->	
+	
+    <script type="text/javascript" src="Lib/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="Lib/js/knockout-3.0.0.debug.js"></script>
+    <script type="text/javascript" src="Lib/js/globalize.min.js"></script>
+	<script type="text/javascript" src="Lib/js/dx.phonejs.debug.js"></script>	
+	
+	<link rel="stylesheet" type="text/css" href="Lib/css/dx.common.css" />
     <link rel="stylesheet" type="text/css" href="Lib/css/dx.ios.default.css" />
     <link rel="stylesheet" type="text/css" href="Lib/css/dx.android.holo-dark.css" />
     <link rel="stylesheet" type="text/css" href="Lib/css/dx.tizen.black.css" />
     <link rel="stylesheet" type="text/css" href="Lib/css/dx.generic.light.css" />
     <link rel="stylesheet" type="text/css" href="Lib/css/dx.win8.black.css" />
-    <script type="text/javascript" src="Lib/js/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="Lib/js/knockout-3.0.0.debug.js"></script>
-    <script type="text/javascript" src="Lib/js/globalize.min.js"></script>
-    <script type="text/javascript" src="Lib/js/dx.phonejs.debug.js"></script>
-    
-    <script type="text/javascript" src="app.main.js"></script>
-    <script type="text/javascript" src="db.js"></script>
-    
-    <script type="text/javascript" src="Lib/layouts/NavBar/NavbarLayout.js"></script>
+	
+    <link rel="stylesheet" type="text/css" href="Lib/layouts/Empty/EmptyLayout.css" />
+    <link rel="dx-template" type="text/html" href="Lib/layouts/Empty/EmptyLayout.html"/>    
+    <script type="text/javascript" src="Lib/layouts/Empty/EmptyLayout.js"></script>    
+	
     <link rel="stylesheet" type="text/css" href="Lib/layouts/NavBar/NavbarLayout.css" />
     <link rel="dx-template" type="text/html" href="Lib/layouts/NavBar/NavbarLayout.html"/>    
-    
+    <script type="text/javascript" src="Lib/layouts/NavBar/NavbarLayout.js"></script> 
+
+    <link rel="stylesheet" type="text/css" href="Lib/layouts/Pivot/PivotLayout.css" />
+    <link rel="dx-template" type="text/html" href="Lib/layouts/Pivot/PivotLayout.html"/>    
+    <script type="text/javascript" src="Lib/layouts/Pivot/PivotLayout.js"></script> 
+
+    <link rel="stylesheet" type="text/css" href="Lib/layouts/Simple/SimpleLayout.css" />
+    <link rel="dx-template" type="text/html" href="Lib/layouts/Simple/SimpleLayout.html"/>    
+    <script type="text/javascript" src="Lib/layouts/Simple/SimpleLayout.js"></script> 
+
+    <link rel="stylesheet" type="text/css" href="Lib/layouts/SlideOut/SlideOutLayout.css" />
+    <link rel="dx-template" type="text/html" href="Lib/layouts/SlideOut/SlideOutLayout.html"/>    
+    <script type="text/javascript" src="Lib/layouts/SlideOut/SlideOutLayout.js"></script> 
+
+    <link rel="stylesheet" type="text/css" href="Lib/layouts/Split/SplitLayout.css" />
+    <link rel="dx-template" type="text/html" href="Lib/layouts/Split/SplitLayout.html"/>    
+    <script type="text/javascript" src="Lib/layouts/Split/SplitLayout.js"></script> 
+	
+	<script type="text/javascript" src="debug-pgb.js"></script>
+    <script type="text/javascript" src="app.main.js"></script>
+    <script type="text/javascript" src="db.js"></script>	
+	
+    <script type="text/javascript" src="views/home/home-controller.js"></script>	
+    <script type="text/javascript" src="views/library/library-controller.js"></script>	
+	<script type="text/javascript" src="views/settings/settings-controller.js"></script>
+	<script type="text/javascript" src="views/procedure/procedure-controller.js"></script>	
+	
     <!-- Home -->
     <link rel="stylesheet" type="text/css" href="views/home/home-style.css" />
-    <script type="text/javascript" src="views/home/home-controller.js"></script>
+
     <link rel="dx-template" type="text/html" href="views/home/home-index.html"/>
     <!-- My Library -->
     <link rel="stylesheet" type="text/css" href="views/library/library-style.css" />
-    <script type="text/javascript" src="views/library/library-controller.js"></script>
+
     <link rel="dx-template" type="text/html" href="views/library/library-index.html"/>     
     <!-- Settings -->
     <link rel="stylesheet" type="text/css" href="views/settings/settings-style.css" />
-    <script type="text/javascript" src="views/settings/settings-controller.js"></script>
+
     <link rel="dx-template" type="text/html" href="views/settings/settings-index.html"/>   
      <!-- Procedure -->
     <link rel="stylesheet" type="text/css" href="views/procedure/procedure-style.css" />
-    <script type="text/javascript" src="views/procedure/procedure-controller.js"></script>
+
     <link rel="dx-template" type="text/html" href="views/procedure/procedure-index.html"/>    
     
     <!-- Procedure: Guidelines -->
@@ -54,5 +88,17 @@
 </head>
     <body>
         <div class="dx-viewport"></div>
+		
+		<script type="text/javascript">
+		    $(function () {
+		        try {
+		            alert('Calling MyApp.app.navigate().');
+		            MyApp.app.navigate();
+		        }
+		        catch (e) {
+		            alert(e);
+		        }
+		    });
+		</script>		
     </body>
 </html>

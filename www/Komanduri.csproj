@@ -136,6 +136,7 @@
     <Content Include="Lib\layouts\Split\SplitLayout.css" />
     <Content Include="Lib\layouts\Split\SplitLayout.html" />
     <Content Include="Lib\layouts\Split\SplitLayout.js" />
+    <Content Include="phonegap.js" />
     <Content Include="views\home\home-controller.js" />
     <Content Include="views\home\home-index.html" />
     <Content Include="views\home\home-style.css" />

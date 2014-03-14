@@ -10,7 +10,7 @@ $(document).on('deviceready', function () {
 
 $(function () {
     try {
-        console.log('Device is ready. Setting up Komanduri navigation.');
+        alert('Device is ready. Setting up Komanduri navigation.');
 
         MyApp.app = new DevExpress.framework.html.HtmlApplication({
             namespace: MyApp,
@@ -34,7 +34,7 @@ $(function () {
                 ]
         });
 
-        console.log('Registering routes.');
+        alert('Registering routes.');
 
         MyApp.app.router.register(":view", { view: "home" });
         MyApp.app.router.register(":view", { view: "library" });
