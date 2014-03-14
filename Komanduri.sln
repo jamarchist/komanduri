@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Komanduri", "www\Komanduri.csproj", "{362837C4-9989-45DB-AFF5-EFC178BEA6FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Komanduri", "Komanduri.csproj", "{362837C4-9989-45DB-AFF5-EFC178BEA6FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

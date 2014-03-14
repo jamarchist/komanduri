@@ -52,7 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.main.js" />
+    <Content Include="cordova.js" />
     <Content Include="debug-pgb.js" />
+    <Content Include="icon.png" />
     <Content Include="Lib\js\cordova.js" />
     <Content Include="Lib\js\cordova\cordova.android.js" />
     <Content Include="Lib\js\cordova\cordova.ios.js" />

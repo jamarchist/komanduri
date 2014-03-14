@@ -1,16 +1,8 @@
 ﻿var MyApp = window.MyApp || {};
 
 $(function () {
-    alert('Document Ready.');
-});
-
-$(document).on('deviceready', function () {
-    alert('Device Ready.');
-});
-
-$(function () {
     try {
-        alert('Device is ready. Setting up Komanduri navigation.');
+        document.addEventListener("deviceready", function () { navigator.splashscreen.hide(); });
 
         MyApp.app = new DevExpress.framework.html.HtmlApplication({
             namespace: MyApp,
@@ -34,12 +26,12 @@ $(function () {
                 ]
         });
 
-        alert('Registering routes.');
-
         MyApp.app.router.register(":view", { view: "home" });
         MyApp.app.router.register(":view", { view: "library" });
         MyApp.app.router.register(":view", { view: "settings" });
         MyApp.app.router.register(":view/:id", { view: "procedure", id: null });
+        
+        MyApp.app.navigate();
     } catch (e) {
         alert(e);
     }
