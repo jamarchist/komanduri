@@ -1,6 +1,8 @@
 ﻿
 MyApp.home = function (params) {
     var viewModel = {
+        homeList : MyApp.db.demoCategories
+
 /*
         navigateToProcedure: function (itemClicked) {
             MyApp.app.navigate('procedure/' + itemClicked.itemData.id);
