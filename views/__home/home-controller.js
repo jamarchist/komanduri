@@ -1,5 +1,7 @@
 ﻿
 MyApp.home = function (params) {
+    console.log('home view model invoked.')
+
     var viewModel = {
         homeList : MyApp.db.demoCategories
 
