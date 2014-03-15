@@ -1,7 +1,12 @@
-﻿<div data-options="dxView: { name: 'home' }">
-    <div data-options="dxContent: { targetPlaceholder: 'content' }">
-        <div data-bind="foreach: homeList">
-            <span data-bind="text: key"></span>
+﻿<div data-options="dxView : { name: 'home' }">
+
+    <div data-options="dxContent : { targetPlaceholder: 'content' }">
+        <div data-bind="dxToolbar: { items: [{ align: 'center', text: 'Komanduri' }] }"></div>
+
+        <div data-bind="dxScrollView: { }" class="main-content">
+            <div data-bind="dxList: { dataSource: homeList }"></div>
         </div>
     </div>
 </div>
+
+
