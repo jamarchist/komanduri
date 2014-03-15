@@ -1,7 +1,7 @@
 ﻿
 MyApp.home = function (params) {
     var viewModel = {
-
+/*
         navigateToProcedure: function (itemClicked) {
             MyApp.app.navigate('procedure/' + itemClicked.itemData.id);
         },
@@ -20,7 +20,8 @@ MyApp.home = function (params) {
             if (args.viewInfo.viewName === 'home') {
                 $('#home-nav-list').find('.dx-list-item').hide();
             }
-        }
+        }*/
+
     };
 
     return viewModel;
