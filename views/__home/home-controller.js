@@ -2,8 +2,11 @@
 
 MyApp.home = function(params) {
 
+    MyApp.debug = MyApp.debug || [];
+    MyApp.debug.push('Home view model invoked.')
+
     return {
-        homeList: [ { key: 'A' }, { key: 'B' } ]
+        homeList: [ 'A','B' ]
     };
 };
 
