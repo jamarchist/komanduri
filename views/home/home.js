@@ -1,92 +1,28 @@
-﻿"use strict";
+﻿$(function () {
+    MyApp.home = function (params) {
+        var viewModel = {
 
-MyApp.home = function(params) {
-    var DEFAULT_TIP_PERCENT = 15;
+            navigateToProcedure: function (itemClicked) {
+                MyApp.app.navigate('procedure/' + itemClicked.itemData.id);
+            },
 
-    var billTotal = ko.observable(),
-        tipPercent = ko.observable(DEFAULT_TIP_PERCENT),
-        splitNum = ko.observable(1);
+            onGroupItemClicked: function (evt) {
+                $('#home-nav-list').find('.dx-list-item').hide();
 
-    var ROUND_UP = 1,
-        ROUND_DOWN = -1,
-        ROUND_NONE = 0,
-        roundMode = ko.observable(ROUND_NONE);
+                var group = $(evt.element);
+                group.parents('.dx-list-group').children('.dx-list-item').show();
+            },
 
-    function billTotalAsNumber() {
-        return billTotal() || 0;
-    }
+            viewShown: function (args) {
+                // This shouldn't be necessary, but I think something
+                // crazy is going on. Removing this will cause the library 
+                // list to act wonky
+                if (args.viewInfo.viewName === 'home') {
+                    $('#home-nav-list').find('.dx-list-item').hide();
+                }
+            }
+        };
 
-
-    var totalTip = ko.computed(function() {
-        return 0.01 * tipPercent() * billTotalAsNumber();
-    });
-
-    var tipPerPerson = ko.computed(function() {
-        return totalTip() / splitNum();
-    });
-
-    var totalPerPerson = ko.computed(function() {
-        return (totalTip() + billTotalAsNumber()) / splitNum();
-    });
-
-    var totalToPay = ko.computed(function() {
-        var value = totalTip() + billTotalAsNumber();
-
-        switch(roundMode()) {
-            case ROUND_DOWN:
-                if(Math.floor(value) >= billTotalAsNumber())
-                    return Math.floor(value);
-                return value;
-
-            case ROUND_UP:
-                return Math.ceil(value);
-
-            default:
-                return value;
-        }
-    });
-
-
-    function roundUp() {
-        roundMode(ROUND_UP);
-    }
-
-    function roundDown() {
-        roundMode(ROUND_DOWN);
-    }
-
-
-    billTotal.subscribe(function() {
-        roundMode(ROUND_NONE);
-    });
-
-    tipPercent.subscribe(function() {
-        roundMode(ROUND_NONE);
-    });
-
-    splitNum.subscribe(function() {
-        roundMode(ROUND_NONE);
-    });
-
-
-    function viewShown() {
-        $("#billTotalInput").data("dxNumberBox").focus();
-    }
-
-
-    return {
-        billTotal: billTotal,
-        tipPercent: tipPercent,
-        splitNum: splitNum,
-
-        totalTip: totalTip,
-        tipPerPerson: tipPerPerson,
-        totalPerPerson: totalPerPerson,
-        totalToPay: totalToPay,
-
-        roundUp: roundUp,
-        roundDown: roundDown,
-
-        viewShown: viewShown
+        return viewModel;
     };
-};
+});
