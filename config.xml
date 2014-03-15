@@ -2,19 +2,18 @@
 <widget
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:gap="http://phonegap.com/ns/1.0"
-    id="com.devexpress.dxtipcalculatorinternal"
+    id="com.codeprose.komanduri"
     versionCode="100"
     version="0.1.0.0">
    
-    <name>TipCalculator</name>
+    <name>Komanduri</name>
 
     <description>
-        Fast and convenient way to calculate tips for a check.
-        Inputting the sum from a check, you get the total tips due, as well as the totals and tips per person.
+        Endoscopic Procedure Reference
     </description>
 
-    <author href="http://www.devexpress.com">
-        Developer Express Inc.
+    <author href="http://www.thecodeprose.com">
+        CodeProse, LLC
     </author>
 
     <preference name="phonegap-version" value="2.9.0" />
