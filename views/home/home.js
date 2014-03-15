@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-TipCalculator.home = function(params) {
+MyApp.home = function(params) {
     var DEFAULT_TIP_PERCENT = 15;
 
     var billTotal = ko.observable(),
